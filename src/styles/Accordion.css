@@ -1,0 +1,60 @@
+.accordion {
+    /* border: 1px solid #ddd;  */
+    /* border-radius: 8px;  */
+    overflow: hidden; /* Prevents inner content from overflowing */
+    margin-bottom: 20px; /* Space between accordions */
+}
+
+.accordion-item {
+    border-bottom: 1px solid #ddd; /* Divider between items */
+    margin-left: 10rem;
+    margin-right: 10rem;
+    /* margin-bottom: 5px; */
+    /* height: 1rem; */
+}
+
+.accordion-button {
+    width: 100%;
+    color: #333; /* Text color */
+    padding: 15px; /* Padding */
+    text-align: center; /* Align text */
+    border: none; /* No border */
+    outline: none; /* Remove outline */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 20px; /* Font size */
+    transition: transform 0.3s ease, background-color 0.3s; /* Smooth transition */
+    height: 80px;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+}
+
+.accordion-button:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+   color: #71a5de;
+}
+
+.accordion-content {
+    padding: 15px; /* Padding for content */
+    background-color: #f9f9f9; /* Content background color */
+    
+}
+
+.learn-more-button {
+    display: inline-block; /* Make it a block element */
+    margin-top: 10px; /* Space above button */
+    padding: 10px 15px; /* Padding for button */
+    background-color: #71a5de; /* Button color */
+    color: #fff; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* No underline */
+}
+
+.feeling-title{
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    color: #71a5de;
+    margin-bottom: 4rem;
+    font-size:xx-large;
+
+}
