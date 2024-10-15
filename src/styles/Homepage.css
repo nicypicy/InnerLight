@@ -1,0 +1,122 @@
+/* styles/Homepage.css */
+
+/* Existing styles... */
+
+.animation-slideshow {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center; /* Center vertically */
+    height: 550px; /* Set height for the slideshow */
+    margin-bottom: 40px; /* Spacing below the slideshow */
+    background-color: #ffffff; /* Background color */
+    gap: 20px; /* Space between animation and text */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.animation-slideshow .lottie-animation {
+    width: 1050px; /* Set a specific width for animations */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+/* Additional styles for the introduction text */
+.introduction {
+    display: flex;
+    flex-direction: column; /* Stack text vertically */
+    align-items: flex-start; /* Align text to the left */
+    text-align: left; /* Explicitly set text alignment to left */
+    font-family: "Poppins", sans-serif; /* Choose your preferred font */
+    color: #333; /* Text color */
+    margin-right: 3rem;
+    margin-left: 3rem;
+}
+
+.introduction h2 {
+    font-size: 60px; /* Heading size */
+    margin-top: 10px; /* Space above the heading */
+    align-items: center;
+    font-family: "Playfair Display", serif;
+}
+
+.introduction p {
+    font-size: 16px; /* Paragraph size */
+    line-height: 1.5; /* Line height for readability */
+    margin-top: 10px; /* Space above paragraph */
+    text-align: left; /* Align text to the left */
+    align-items: flex-start;
+    display: flex;
+}
+
+.get-help-button {
+    margin-top: 20px; /* Space above the button */
+    align-self: flex-end; /* Align the button to the right */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    background-color: #71a5de; /* Button background color */
+    color: #ffffff; /* Button text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.get-help-button:hover {
+    background-color: #3f8efc; /* Darker background on hover */
+}
+
+/* Styles for the button container */
+.button-container {
+    align-self: flex-end; /* Align the container to the right */
+    margin-top: 1px; /* Add some space above the button */
+}
+
+/* Update styles if needed for the anchor tag */
+.button-container a {
+    text-decoration: none; /* Remove underline from the link */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .animation-slideshow {
+        flex-direction: column;
+        height: auto; /* Allow the height to adjust */
+        text-align: center; /* Center text on smaller screens */
+    }
+
+    .lottie-animation {
+        width: 100%; /* Full width on mobile */
+        max-width: 300px; /* Limit maximum width */
+        margin: 0 auto; /* Center align */
+    }
+
+    .introduction {
+        align-items: center; /* Center text on smaller screens */
+        margin-right: 0; /* Remove right margin */
+        padding: 10px; /* Add padding for spacing */
+    }
+
+    .introduction h2 {
+        font-size: 20px; /* Reduce font size for headings */
+    }
+
+    .introduction p {
+        font-size: 14px; /* Reduce font size for paragraphs */
+    }
+
+    .get-help-button {
+        width: 80%; /* Button fills 80% of screen width */
+    }
+}

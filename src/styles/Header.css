@@ -1,0 +1,70 @@
+/* styles/Header.css */
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #71a5de;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.innerlight-logo {
+    height: 55px;
+    margin-right: 15px;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0;
+    font-family: "Playfair Display", serif;
+}
+
+/* For larger screens */
+.header nav {
+    margin-left: auto;
+}
+
+/* Default navigation style */
+.header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+/* Navigation link style */
+.header nav ul li a {
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for navigation links */
+.header nav ul li a:hover {
+    background-color: #ffffff;
+    color: #71a5de;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center-align elements */
+        text-align: center;
+    }
+
+    .header nav {
+        margin-left: 0; /* Reset margin */
+        width: 100%; /* Make the nav take full width */
+    }
+
+    .header nav ul {
+        flex-direction: column; /* Stack the links vertically */
+        gap: 10px; /* Reduce gap for smaller screens */
+        padding: 0; /* Remove any padding */
+    }
+}
