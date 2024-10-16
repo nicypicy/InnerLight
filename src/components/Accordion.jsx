@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Accordion.css';
 
-const AccordionItem = ({ title, content, link, color}) => {
+const AccordionItem = ({ title, content, link, color }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleAccordion = () => {
@@ -10,7 +10,7 @@ const AccordionItem = ({ title, content, link, color}) => {
     };
 
     return (
-        <div className="accordion-item">
+        <div id='genres' className="accordion-item">
             <button
                 className="accordion-button"
                 onClick={toggleAccordion}
@@ -42,16 +42,46 @@ const Accordion = () => {
         { title: "Anxious", content: "Many people struggle with feelings of anxiety. But we can work through and overcome those feelings to make the most of work, school, relationships, and life.", link: '/anxious', color: "#dfeffd" },
         { title: "Sad", content: "From feeling down from time to time to experiencing the persistent sadness of clinical depression, there are things all of us can do to reduce feelings of sadness in our lives.", link: '/sad', color: "#CFE8FC" },
         { title: "Hopeless", content: "When life feels bleak, and it's hard to find hope or figure out what to do next, there are always actions we can take to feel better.", link: '/hopeless', color: "#BFE0FB" },
-        { title: "Lonely", content: "Loneliness can literally mean being isolated from other people, but it's often about not feeling understood or connected to those around us. Whatever the struggle, there are ways to overcome loneliness.", link: '/lonely' , color: "#AFD9FA"},
+        { title: "Lonely", content: "Loneliness can literally mean being isolated from other people, but it's often about not feeling understood or connected to those around us. Whatever the struggle, there are ways to overcome loneliness.", link: '/lonely', color: "#AFD9FA" },
         { title: "Stressed", content: "Stress can be motivating, but when it's overwhelming it can affect our moods and ability to think clearly. So it's important to find ways to cope with and prevent negative stress levels.", link: '/stressed', color: "#9FD1F9" },
         { title: "Weird", content: "Sometimes we can easily describe our emotional state, and other times, we just feel weird. When that happens, it's important to be proactive, understand what's really going on and find ways to cope.", link: '/weird', color: "#90CAF9" }
     ];
 
+    const accordionRef = useRef(null);
+
+    // Function to check if the accordion section is in view
+    const handleScroll = () => {
+        const accordionTop = accordionRef.current.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (accordionTop < windowHeight - 100) { // Adjusted for earlier triggering
+            const items = accordionRef.current.querySelectorAll('.accordion-item');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, index * 150); // Staggered animation for each item
+            });
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <div className="accordion">
+        <div className="accordion" ref={accordionRef}>
             <h2 className='feeling-title'>What are you feeling?</h2>
             {feelingsData.map((item, index) => (
-                <AccordionItem key={index} title={item.title} content={item.content} link={item.link} color={item.color} />
+                <AccordionItem
+                    key={index}
+                    title={item.title}
+                    content={item.content}
+                    link={item.link}
+                    color={item.color}
+                />
             ))}
         </div>
     );

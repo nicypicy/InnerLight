@@ -68,3 +68,7 @@
         padding: 0; /* Remove any padding */
     }
 }
+
+#genres{
+    scroll-behavior: smooth;
+}

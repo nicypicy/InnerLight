@@ -1,60 +1,98 @@
+/* Accordion Container */
 .accordion {
-    /* border: 1px solid #ddd;  */
-    /* border-radius: 8px;  */
-    overflow: hidden; /* Prevents inner content from overflowing */
-    margin-bottom: 20px; /* Space between accordions */
+    overflow: hidden;
+    margin-bottom: 4rem;
 }
 
+/* Accordion Items */
 .accordion-item {
-    border-bottom: 1px solid #ddd; /* Divider between items */
     margin-left: 10rem;
     margin-right: 10rem;
-    /* margin-bottom: 5px; */
-    /* height: 1rem; */
+    opacity: 0; /* Start hidden */
+    transform: translateY(-50px); /* Start with a slight upward offset */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
 }
 
+/* Animation for Falling Curtain Effect */
+.accordion-item.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move into place */
+}
+
+/* Accordion Button */
 .accordion-button {
     width: 100%;
-    color: #333; /* Text color */
-    padding: 15px; /* Padding */
-    text-align: center; /* Align text */
-    border: none; /* No border */
-    outline: none; /* Remove outline */
-    cursor: pointer; /* Pointer cursor */
-    font-size: 20px; /* Font size */
-    transition: transform 0.3s ease, background-color 0.3s; /* Smooth transition */
+    color: #495057;
+    padding: 15px;
+    text-align: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.3s ease, background-color 0.3s, color 0.3s; /* Added color transition */
     height: 80px;
-    font-family: "Playfair Display", serif;
+    font-family: "Poppins", sans-serif;
     font-weight: bold;
+    border-radius: 5px; /* Optional: rounded corners for button */
 }
 
+/* Hover Effect for Accordion Button */
 .accordion-button:hover {
     transform: scale(1.05); /* Zoom effect on hover */
-   color: #71a5de;
+    color: #333;
+    background-color: #e0f2fe; /* Optional: light hover background color */
 }
 
+/* Accordion Content */
 .accordion-content {
-    padding: 15px; /* Padding for content */
-    background-color: #f9f9f9; /* Content background color */
+    padding: 2rem;
+    background-color: #f9f9f9;
+    /* border-top: 1px solid #ddd; */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
     
 }
 
+/* Learn More Button */
 .learn-more-button {
-    display: inline-block; /* Make it a block element */
-    margin-top: 10px; /* Space above button */
-    padding: 10px 15px; /* Padding for button */
-    background-color: #71a5de; /* Button color */
-    color: #fff; /* Text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    text-decoration: none; /* No underline */
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #71a5de;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Smooth transition for background */
+    margin-left: 2rem;
+    white-space: nowrap;
+   
 }
 
-.feeling-title{
+/* Hover Effect for Learn More Button */
+.learn-more-button:hover {
+    background-color: #588bc2; /* Darker blue on hover */
+}
+
+/* Feeling Title */
+.feeling-title {
     text-align: center;
     font-family: "Playfair Display", serif;
     color: #71a5de;
     margin-bottom: 4rem;
-    font-size:xx-large;
+    font-size: xx-large;
+    animation: fadeIn 1s ease-in-out; /* Optional: fade-in animation for title */
+}
 
+/* Fade-in Animation for Title */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

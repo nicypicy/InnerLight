@@ -7,7 +7,7 @@ import '../styles/global.css'; // Import global styles
 
 function Homepage() {
   return (
-    <div className="container"> {/* Use the container class */}
+    <div id='home' className="container"> {/* Use the container class */}
       <Header />
       <AnimationSlideshow />
       {/* Other components or content will go here */}
