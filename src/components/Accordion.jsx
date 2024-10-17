@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Accordion.css';
+import { Link } from 'react-router-dom';
 
 const AccordionItem = ({ title, content, link, color }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ const AccordionItem = ({ title, content, link, color }) => {
     };
 
     return (
-        <div id='genres' className="accordion-item">
+        <div  className="accordion-item">
             <button
                 className="accordion-button"
                 onClick={toggleAccordion}
@@ -22,7 +23,7 @@ const AccordionItem = ({ title, content, link, color }) => {
             {isOpen && (
                 <div className="accordion-content">
                     <p>{content}</p>
-                    <a href={link} className="learn-more-button">Learn more</a>
+                    <Link to={link} className="learn-more-button" onClick={() => console.log(`Navigating to ${link}`)}>Learn more</Link>
                 </div>
             )}
         </div>
@@ -49,17 +50,17 @@ const Accordion = () => {
 
     const accordionRef = useRef(null);
 
-    // Function to check if the accordion section is in view
+    
     const handleScroll = () => {
         const accordionTop = accordionRef.current.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
 
-        if (accordionTop < windowHeight - 100) { // Adjusted for earlier triggering
+        if (accordionTop < windowHeight - 100) { 
             const items = accordionRef.current.querySelectorAll('.accordion-item');
             items.forEach((item, index) => {
                 setTimeout(() => {
                     item.classList.add('visible');
-                }, index * 150); // Staggered animation for each item
+                }, index * 150); 
             });
         }
     };
@@ -72,8 +73,8 @@ const Accordion = () => {
     }, []);
 
     return (
-        <div className="accordion" ref={accordionRef}>
-            <h2 className='feeling-title'>What are you feeling?</h2>
+        <div className="accordion" id='genres' ref={accordionRef}>
+            <h2 className='feeling-title'>How do you feel?</h2>
             {feelingsData.map((item, index) => (
                 <AccordionItem
                     key={index}

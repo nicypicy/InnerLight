@@ -2,6 +2,7 @@
 .accordion {
     overflow: hidden;
     margin-bottom: 4rem;
+    
 }
 
 /* Accordion Items */
@@ -11,6 +12,7 @@
     opacity: 0; /* Start hidden */
     transform: translateY(-50px); /* Start with a slight upward offset */
     transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+    /* height: 6rem; */
 }
 
 /* Animation for Falling Curtain Effect */
@@ -30,7 +32,7 @@
     cursor: pointer;
     font-size: 20px;
     transition: transform 0.3s ease, background-color 0.3s, color 0.3s; /* Added color transition */
-    height: 80px;
+    height: 90px;
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     border-radius: 5px; /* Optional: rounded corners for button */
@@ -38,7 +40,7 @@
 
 /* Hover Effect for Accordion Button */
 .accordion-button:hover {
-    transform: scale(1.05); /* Zoom effect on hover */
+    transform: scale(1.07); /* Zoom effect on hover */
     color: #333;
     background-color: #e0f2fe; /* Optional: light hover background color */
 }
