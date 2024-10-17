@@ -1,65 +1,73 @@
-import MultiCarousel from 'react-multi-carousel'; 
-import 'react-multi-carousel/lib/styles.css';
+// import React from 'react';
 import PropTypes from 'prop-types';
+import MultiCarousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import '../styles/Carousel.css';
-import { useState } from 'react';
 
+const CustomLeftArrow = ({ onClick }) => (
+    <button className="carousel-arrow carousel-arrow-left" onClick={onClick}>
+        &#9664;
+    </button>
+);
 
+const CustomRightArrow = ({ onClick }) => (
+    <button className="carousel-arrow carousel-arrow-right" onClick={onClick}>
+        &#9654;
+    </button>
+);
+
+CustomLeftArrow.propTypes = {
+    onClick: PropTypes.func.isRequired,
+};
+
+CustomRightArrow.propTypes = {
+    onClick: PropTypes.func.isRequired,
+};
 
 const CarouselComponent = ({ carouselData }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    console.log(carouselData);
-
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 1, // Display 1 card at a time
-            partialVisibilityGutter: 40 // Adjust for partial visibility
+            items: 3,
+            partialVisibilityGutter: 30,
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 1, // Display 1 card at a time
-            partialVisibilityGutter: 30
+            items: 2,
+            partialVisibilityGutter: 20,
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
-            items: 1, // Display 1 card at a time on mobile
-            partialVisibilityGutter: 30
-        }
-    };
-
-    const handleOnChange = (previousSlide, { currentSlide }) => {
-        setCurrentIndex(currentSlide);
+            items: 1,
+            partialVisibilityGutter: 20,
+        },
     };
 
     return (
-        <div>
-            <MultiCarousel 
+        <div className="carousel-wrapper">
+            <h2 className='experience-title'>What are you experiencing?</h2>
+            <MultiCarousel
                 responsive={responsive}
                 swipeable={true}
                 draggable={true}
-                showDots={false} // Disable dots
+                showDots={true} // Enable dots
+                renderDotsOutside={true} // Place dots outside the carousel
                 ssr={true}
                 infinite={false}
                 keyBoardControl={true}
                 containerClass="carousel-container"
                 itemClass="carousel-item"
-                arrows={true} // Disable arrows
-                afterChange={handleOnChange} // Track current index
+                dotListClass="custom-dot-list" // Custom class for dots
+                customLeftArrow={<CustomLeftArrow />}
+                customRightArrow={<CustomRightArrow />}
             >
                 {carouselData.map((item, index) => (
                     <div className="carousel-card" key={index}>
-                        <h3>{item.title}</h3>
+                        <h3>{item.title.toUpperCase()}</h3>
                         <p>{item.content}</p>
-                        <a href={item.link} className="carousel-link">Learn more</a>
                     </div>
                 ))}
             </MultiCarousel>
-
-            <div className="slider-indicator">
-                {currentIndex + 1} / {carouselData.length}
-            </div>
         </div>
     );
 };
@@ -69,9 +77,8 @@ CarouselComponent.propTypes = {
         PropTypes.shape({
             title: PropTypes.string.isRequired,
             content: PropTypes.string.isRequired,
-            link: PropTypes.string.isRequired
         })
-    ).isRequired
+    ).isRequired,
 };
 
 export default CarouselComponent;

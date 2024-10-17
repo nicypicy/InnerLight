@@ -1,41 +1,110 @@
-.carousel-card {
-    background: #73b4a5; /* Change to the green color */
-    border-radius: 5px;
-    box-shadow: none; /* Remove shadow for a simpler look */
-    padding: 30px; /* Add more padding for space */
-    text-align: left; /* Align text to the left */
-    transition: transform 0.3s;
+/* CarouselComponent.css */
+
+/* Wrapper styling */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    /* background-color: #fff; */
 }
 
-.carousel-card h3 {
-    font-size: 1.2rem; /* Make title font size smaller */
-    margin: 0 0 10px;
-    font-weight: bold; /* Increase font weight for the title */
-    color: #000; /* Change to black for contrast */
-}
-
-.carousel-card p {
-    font-size: 0.9rem; /* Make content font size smaller */
-    margin: 0 0 10px;
-    color: #000; /* Change to black for contrast */
-}
-
-.carousel-link {
-    display: none; /* Hide the 'Learn more' button if not needed */
-}
-
-.slider-indicator {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 1rem;
-    color: #000; /* Match the theme color */
-}
-
-.experiencing-title{
+.experience-title{
     text-align: center;
     font-family: "Playfair Display", serif;
     color: #71a5de;
     margin-bottom: 4rem;
     font-size: xx-large;
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 1s ease-in-out; 
 }
+/* Arrow styling */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 18px;
+    border-radius: 50%;
+    outline: none;
+}
+
+.carousel-arrow-left {
+    left: 0;
+}
+
+.carousel-arrow-right {
+    right: 0;
+}
+
+/* Card styling */
+.carousel-card {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px; /* Set a fixed width */
+    height: 250px; /* Set a fixed height */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.carousel-card h3 {
+    font-size: 18px;
+}
+
+.carousel-card p {
+    font-size: 14px;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+
+.carousel-card:hover {
+    transform: scale(1.05);
+}
+
+/* Item styling */
+.carousel-item {
+    padding: 15px;
+}
+
+/* Container styling */
+.carousel-container {
+    padding: 0 30px;
+    overflow: hidden;
+}
+
+/* Dots styling */
+.custom-dot-list {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.custom-dot-list li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.custom-dot-list button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #888;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.custom-dot-list .react-multi-carousel-dot--active button {
+    background: #333;
+}
+
