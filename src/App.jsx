@@ -12,8 +12,8 @@ import Stressed from './pages/Stressed';
 import Weird from './pages/Weird';
 import './styles/global.css';
 import './styles/Header.css';
-// import CarouselComponent from './components/Carousel';
-// import { carouselData } from './data/CarouselData';
+import CarouselComponent from './components/Carousel';
+import { carouselData } from './data/CarouselData';
 
 export default function App() {
   return (
@@ -26,7 +26,7 @@ export default function App() {
               <>
                 <Homepage />
                 <Accordion />
-                {/* <CarouselComponent carouselData={carouselData} /> Include CarouselComponent here */}
+                <CarouselComponent carouselData={carouselData} /> 
               </>
             } 
           />

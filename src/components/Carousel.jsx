@@ -45,7 +45,7 @@ const CarouselComponent = ({ carouselData }) => {
                 keyBoardControl={true}
                 containerClass="carousel-container"
                 itemClass="carousel-item"
-                arrows={false} // Disable arrows
+                arrows={true} // Disable arrows
                 afterChange={handleOnChange} // Track current index
             >
                 {carouselData.map((item, index) => (
