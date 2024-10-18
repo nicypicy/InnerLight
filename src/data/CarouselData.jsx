@@ -41,7 +41,7 @@ export const carouselData = [
     },
     {
         title: 'Suicidal Thoughts',
-        content: "When mental health challenges go unaddressed, they can lead to serious health problems and can even be fatal. Suicide is preventable if we learn the warning signs and speak up if we're worried about ourselves or a loved one.",
+        content: "When mental health challenges go unaddressed, they can lead to serious health problems. Suicide is preventable if we learn the warning signs and speak up.",
         link: '/suicidalthoughts'
     },
     {
