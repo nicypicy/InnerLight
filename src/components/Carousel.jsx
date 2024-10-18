@@ -1,5 +1,4 @@
-// import React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import MultiCarousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -29,10 +28,12 @@ CustomRightArrow.propTypes = {
 
 const CarouselComponent = ({ carouselData }) => {
     const { ref, inView } = useInView({
-        triggerOnce: true, // Trigger animation only once
-        threshold: 0.1, // 10% of the component should be in view to trigger
+        triggerOnce: true,
+        threshold: 0.1,
     });
     const [hasAnimated, setHasAnimated] = useState(false);
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const carouselRef = useRef(null);
 
     const responsive = {
         desktop: {
@@ -56,6 +57,12 @@ const CarouselComponent = ({ carouselData }) => {
         setHasAnimated(true);
     }
 
+    const handleSliderChange = (e) => {
+        const newSlide = parseInt(e.target.value, 10);
+        setCurrentSlide(newSlide);
+        carouselRef.current.goToSlide(newSlide);
+    };
+
     return (
         <div
             className={`carousel-wrapper ${hasAnimated ? 'animate-in' : ''}`}
@@ -63,19 +70,18 @@ const CarouselComponent = ({ carouselData }) => {
         >
             <h2 className='experience-title'>What are you experiencing?</h2>
             <MultiCarousel
+                ref={carouselRef}
                 responsive={responsive}
                 swipeable={true}
                 draggable={true}
-                showDots={true}
-                renderDotsOutside={true} // Ensure dots are placed inside the container for better control
                 ssr={true}
                 infinite={false}
                 keyBoardControl={true}
                 containerClass="carousel-container"
                 itemClass="carousel-item"
-                dotListClass="custom-dot-list"
                 customLeftArrow={<CustomLeftArrow />}
                 customRightArrow={<CustomRightArrow />}
+                afterChange={(previousSlide, { currentSlide }) => setCurrentSlide(currentSlide)}
             >
                 {carouselData.map((item, index) => (
                     <div className="carousel-card" key={index}>
@@ -85,6 +91,16 @@ const CarouselComponent = ({ carouselData }) => {
                     </div>
                 ))}
             </MultiCarousel>
+
+            {/* Slider below the carousel */}
+            <input
+                type="range"
+                min="0"
+                max={carouselData.length - 1}
+                value={currentSlide}
+                onChange={handleSliderChange}
+                className="carousel-slider"
+            />
         </div>
     );
 };
