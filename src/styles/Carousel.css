@@ -67,7 +67,7 @@
 
 /* Container styling */
 .carousel-container {
-    padding: 0 15px;
+    /* padding: 0 15px; */
     overflow: hidden;
     margin-bottom: 1rem;
 }
@@ -104,3 +104,5 @@
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
+
+
