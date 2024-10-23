@@ -58,11 +58,12 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .carousel-card:hover {
     transform: scale(1.05);
+    border-radius: 15px;
 }
 
 /* Container styling */
@@ -84,6 +85,12 @@
     
 }
 
+/* .carousel-slider:hover{
+    transform: scale(1.05);
+} */
+.carousel-slider::-webkit-slider-thumb:hover{
+    transform: scale(1.20);
+}
 /* Style for the thumb (slider handle) */
 .carousel-slider::-webkit-slider-thumb {
     appearance: none;
